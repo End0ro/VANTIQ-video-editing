@@ -1,0 +1,16 @@
+# Edit outputs and footage never get committed. Drive sync is the backup.
+edit/
+*.mp4
+*.mov
+*.mkv
+*.wav
+*.mp3
+*.m4a
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+
+# Secrets
+.env
