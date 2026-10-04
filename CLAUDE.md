@@ -22,6 +22,7 @@ Edits run **locally on this PC** (`C:\code\video-editing`). Video files are too 
 ## Tools
 
 - `/video-editor` skill in `.claude/skills/video-editor/`, vendored from `browser-use/video-use` (MIT). Helpers in `helpers/`.
+- Remotion skills (`remotion-*`) in `.claude/skills/`, copied from `remotion-dev/remotion` (`packages/skills/skills`, v4.0.532). Start with `/remotion-best-practices`, it routes to the rest. Code-based video and animation in React. To update, re-copy that folder from upstream.
 - HyperFrames skills (`hyperframes*`) for motion graphics, refreshed every session by `.claude/hooks/ensure-video-tools.sh`.
 - Needs: `ffmpeg`, `uv` (Python deps via `uv sync --extra fallback`), `node/npx`, `gws`. The hook prints anything missing at session start.
 - `ELEVENLABS_API_KEY` in the environment or `.env` at `.claude/skills/video-editor/` for Scribe (gitignored). Without it, transcription falls back to Whisper.
