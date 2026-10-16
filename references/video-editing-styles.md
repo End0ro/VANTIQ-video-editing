@@ -86,11 +86,25 @@ Style references for `/video-editor`, built from two reels Ahmed analyzed in Cla
 
 ---
 
+## B-roll reel (cut-based short-form)
+
+**Source:** `docs/herk-edit-kit/EDITING-PLAYBOOK.md` (Nate Herk's measured house style from 27 reels). Starting point for cut-based reels with B-roll, not the talking-head style. Not yet approved by Ahmed. After the first one, record his notes here as rules.
+
+- Layouts at 1080x1920, hard cuts only: split (B-roll top, speaker below), full B-roll, punch-in on the speaker. Speaker on screen about 45% of the time, never gone more than about 3.5 s.
+- Shots average 1.1 to 1.4 s, none over about 2.8 s. First cut lands at 0.6 to 1.0 s.
+- Hook in the first 3 seconds names the topic. Test: is someone convinced to watch to the end?
+- Captions: Ahmed's fonts (Manrope ExtraBold plus Playfair Italic accent), not Nate's Montserrat. Keep his placement rules: never over the mouth, check contrast behind every caption, one look for the whole reel.
+- B-roll order: real clip, website recording, animated UI mock, Flow AI video. Use `/find-broll`.
+- Music about 11 dB under voice, ducked. Sound effects only on visible actions. Master near -14 LUFS, measured on the final stereo file.
+
+---
+
 ## Quick reference: which style to use
 
 | Content type | Style |
 |---|---|
 | Tutorial, workflow demo, "how I use X," product explainer | Educational (Reel 1) |
+| Cut-based reel with B-roll, hook-driven | B-roll reel (see above) |
 | Solo talking-head monologue, motivational/mindset, opinion piece | Talking head (house style, see `references/examples/talking-head-captions.py`) |
 
 If a video doesn't clearly match either, ask Ahmed before defaulting to one.

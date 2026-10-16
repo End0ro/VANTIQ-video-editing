@@ -21,6 +21,7 @@ These are the things where deviation produces silent failures or broken output. 
 
 1. **Subtitles are applied LAST in the filter chain**, after every overlay. Otherwise overlays hide captions. Silent failure.
 2. **Per-segment extract → lossless `-c copy` concat**, not single-pass filtergraph. Otherwise you double-encode every segment when overlays are added.
+   > **Known issue (tested 2026-10-16, `scripts/concat-drift-test/`):** on a 12-cut synthetic edit this method drifted audio ahead of video by up to 173 ms (about 14 ms per cut, likely AAC padding per segment). A single-pass frame-exact cut stayed within 2 ms. For cut-based edits with many joins, check lip sync against the raw at the last cut before delivering. Talking-head house style has no cuts and is not affected. `render.py` itself is untouched.
 3. **30ms audio fades at every segment boundary** (`afade=t=in:st=0:d=0.03,afade=t=out:st={dur-0.03}:d=0.03`). Otherwise audible pops at every cut.
 4. **Overlays use `setpts=PTS-STARTPTS+T/TB`** to shift the overlay's frame 0 to its window start. Otherwise you see the middle of the animation during the overlay window.
 5. **Master SRT uses output-timeline offsets**: `output_time = word.start - segment_start + segment_offset`. Otherwise captions misalign after segment concat.

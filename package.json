@@ -1,0 +1,20 @@
+{
+  "name": "video-editing",
+  "private": true,
+  "type": "commonjs",
+  "description": "Helper scripts and validators imported from nateherkai/herk-edit-kit (MIT). See licenses/.",
+  "scripts": {
+    "validate-beats": "node scripts/validate-beat-sync.mjs",
+    "preflight": "node scripts/preflight.mjs",
+    "catalog": "node scripts/style-library/build-registry.mjs",
+    "bridge": "node scripts/video-use-to-hyperframes-transcript.mjs",
+    "validate:short-form": "node .claude/skills/short-form-edit/scripts/validate-plan.mjs",
+    "validate:footage": "node .claude/skills/short-form-edit/scripts/validate-footage.mjs"
+  },
+  "engines": { "node": ">=22" },
+  "devDependencies": {
+    "hyperframes": "0.7.109",
+    "gsap": "3.14.2",
+    "playwright": "^1.59.1"
+  }
+}
