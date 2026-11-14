@@ -42,7 +42,26 @@ Video beats images, always. An AI still used as B-roll is an error. Stills are o
 
 ## Source 4: Flow AI video
 
-Run through Google Flow in the browser. Rules and UI steps are in `../gbro-collage-broll/SKILL.md` (Gate 2 and Gate 3). Same hard rules apply:
+Run through Google Flow in the browser on Ahmed's Google AI Pro plan (no API key). Use Claude in Chrome (his logged-in Chrome) if connected, otherwise the built-in browser pane signed in by Ahmed. Ahmed shows the target style himself; copy that style, do not invent one.
+
+Flow UI steps (verified 2026-10-15, Flow UI is Russian on his account):
+
+1. Still: settings popover, tab **Изображение (Image)**, aspect **9:16**, model **Nano Banana 2.1**, outputs **x2**. Paste the prompt, generate, pick the better one. Image generation costs 0 credits.
+2. Video: tab **Видео (Video)**, mode **Кадры (Frames)** (First and Last slots) or text-to-video, aspect **9:16**, model **Omni 1.1 Flash**, **720p**, 6 to 8 s, outputs **x2**.
+3. The First and Last slots open a picker of the project's own images, so make both frames inside Flow. For an empty first frame, attach the approved still with "+" and prompt "use this exact image but remove every object, leave only the flat [color] background".
+4. Settings persist between generations. Re-check them before each run.
+5. Cost: Omni 1.1 Flash 720p 8 s x2 = 24 credits, 10 s x1 = 15. A 10 s clip renders in about 2 minutes. Output is 720x1280.
+6. QA without downloading: open the clip, seek the `<video>` element with JavaScript (`currentTime`), screenshot.
+7. After the approved download, strip audio and make a contact sheet:
+
+```bash
+ffmpeg -y -i final.mp4 -map 0:v:0 -c:v copy -an final-noaudio.mp4
+ffmpeg -y -i final-noaudio.mp4 -vf "fps=1,scale=270:480,tile=6x1" -frames:v 1 contact-sheet.jpg
+```
+
+Video QA: check the whole clip, not only the end. No cuts, zoom or style drift, no fake text, logo, watermark or UI, last frame matches the approved still, output silent. If fake text appears, fix the still, not the video prompt.
+
+Hard rules:
 
 - Never enter Ahmed's Google password. If Flow asks to sign in, stop and ask him.
 - Check the credit cost line before each batch (12 credits per 720p 8 s clip on 2026-10-15). One test clip first.

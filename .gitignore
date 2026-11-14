@@ -14,3 +14,7 @@ __pycache__/
 
 # Secrets
 .env
+
+# Animation kit
+animation/node_modules/
+animation/out/

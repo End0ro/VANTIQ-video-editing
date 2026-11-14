@@ -258,8 +258,7 @@ human reactions where they support the story.
 
 1. Generated moving inserts and images come from Google Flow (Omni 1.1 Flash,
    Nano Banana) driven through the browser on Ahmed's Google AI Pro plan. No API
-   key and no Kie.ai. Follow `/find-broll` for sourcing order and the ledger, and
-   `/gbro-collage-broll` for the paper-collage look. Check the credit cost line in
+   key and no Kie.ai. Follow `/find-broll` for sourcing order, the Flow UI steps and the ledger. Check the credit cost line in
    Flow before each batch. Save model, prompt, selected output, and generation
    state; reuse successful clips rather than regenerating blindly.
    Download and inspect real video files, including full-size corners throughout
